@@ -160,11 +160,6 @@ bls = [
 #"zombie.dnsbl.sorbs.net",
 "dnsbl.burnt-tech.com",
 ]
- 
-def test_allDNS():
-   for bl in bls:
-       assert socket.gethostbyname(bl)
-
         
 def checkDNSBL(server):
     for bl in bls:
@@ -182,4 +177,8 @@ def checkDNSBL(server):
 if __name__ == '__main__':
     checkDNSBL("8.8.8.8")
 
-
+class TestDNS:
+    def test_allDNS():
+       for bl in bls:
+           assert socket.gethostbyname(bl)
+           

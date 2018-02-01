@@ -168,11 +168,11 @@ def checkDNSBL(server):
             query = '.'.join(reversed(str(server).split("."))) + "." + bl
             answers = my_resolver.query(query, "A")
             answer_txt = my_resolver.query(query, "TXT")
-            print 'IP: %s IS listed in %s (%s: %s)' %(server, bl, answers[0], answer_txt[0])
+            print('IP: %s IS listed in %s (%s: %s)' %(server, bl, answers[0], answer_txt[0]))
         except dns.resolver.NXDOMAIN:
-            print 'IP: %s is NOT listed in %s' %(server, bl)
+            print('IP: %s is NOT listed in %s' %(server, bl))
         except dns.resolver.NoAnswer:
-            print 'No answer from %s' %(bl)
+            print('No answer from %s' %(bl))
 
 if __name__ == '__main__':
     checkDNSBL("8.8.8.8")
